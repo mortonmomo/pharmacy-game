@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pharmacy Talk Game Comic</title>
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef4ff;color:#223047}
+.app{max-width:1100px;margin:auto;padding:24px}
+h1{margin:0 0 8px 0} .top{margin-bottom:20px}
+.game{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel{background:#fff;border-radius:20px;border:1px solid #d9e1ee;padding:20px}
+.scene-image{width:100%;border-radius:14px;border:1px solid #d9e1ee;display:block;margin-bottom:14px}
+.progress{font-size:14px;color:#2b5ea3;font-weight:bold;margin-bottom:10px}
+.note{font-size:14px;color:#5f6f86;line-height:1.6}.options button{display:block;width:100%;margin:8px 0;padding:12px;border-radius:10px;border:1px solid #d9e1ee;background:#fff;cursor:pointer;font-size:16px;text-align:left}.options button:hover{background:#eef4ff}.feedback{margin:12px 0;padding:12px;border-radius:10px;background:#fff9e6;line-height:1.6}.hidden{display:none}.result{padding:16px;border-radius:12px;background:#f4f7ff;margin-top:12px}.restart{margin-top:10px;padding:10px 14px;border:none;border-radius:10px;background:#2b5ea3;color:#fff;cursor:pointer}a{color:#2b5ea3}
+@media(max-width:900px){.game{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="top">
+<h1>Pharmacy Talk Game Comic</h1>
+<p>This version shows the comic illustration directly in the game.</p>
+<p><a href="index.html">Back to main version</a></p>
+</div>
+<div class="game">
+<div class="panel">
+<img id="sceneImage" class="scene-image" alt="Pharmacy comic illustration" src="data:image/png;base64,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
